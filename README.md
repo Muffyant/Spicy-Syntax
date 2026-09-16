@@ -1,6 +1,9 @@
 # The Stockroom Grimoire — demo edition
 
 [![CI](https://github.com/Muffyant/Spicy-Syntax/actions/workflows/ci.yml/badge.svg)](https://github.com/Muffyant/Spicy-Syntax/actions/workflows/ci.yml)
+[![Deploy](https://github.com/Muffyant/Spicy-Syntax/actions/workflows/deploy.yml/badge.svg)](https://github.com/Muffyant/Spicy-Syntax/actions/workflows/deploy.yml)
+
+**Live demo:** https://muffyant.github.io/Spicy-Syntax/
 
 Inventory, batch and margin control for a small spice-blend business. A single-component
 React app, extracted from a Claude artifact into a standard Vite project.
@@ -20,7 +23,8 @@ Then open the URL Vite prints (usually http://localhost:5173).
     npm test        # Vitest + jsdom, storage mocked
     npm run build   # production bundle in dist/
 
-Both run in CI on every push and pull request.
+Both run in CI on every push and pull request. Every push to `main` also rebuilds the
+live demo and publishes it to GitHub Pages (see `.github/workflows/deploy.yml`).
 
 ## How it is put together
 
