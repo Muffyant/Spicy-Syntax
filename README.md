@@ -22,6 +22,7 @@ One thing only: storage. `src/storage.js` is an adapter — it uses Claude's
 - QA harness pattern: jsdom + React 18 + mocked storage; exception paths get tests
   before happy paths (spec §10 global DoD).
 
-## Warning
-This build contains the REAL recipe data (ingredient ratios = the business's IP).
-Keep the repository PRIVATE. A fictional-data demo twin exists for anything public.
+## Data note
+This is the DEMO twin: every blend, ratio and supplier in `src/App.jsx` is fictional.
+The build with the real recipe data (the business's IP) is kept separately and must
+only ever live in a private repository.
