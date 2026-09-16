@@ -1,28 +1,41 @@
-# The Stockroom Grimoire — portable build
+# The Stockroom Grimoire — demo edition
 
-Inventory, batch, and margin control for Sages of Spice. Single-component React app,
-extracted from the Claude artifact into a standard Vite project.
+[![CI](https://github.com/Muffyant/Spicy-Syntax/actions/workflows/ci.yml/badge.svg)](https://github.com/Muffyant/Spicy-Syntax/actions/workflows/ci.yml)
+
+Inventory, batch and margin control for a small spice-blend business. A single-component
+React app, extracted from a Claude artifact into a standard Vite project.
+
+Every blend, ratio and supplier in this repository is **fictional demo data**. The build
+with the real recipes is kept separately in a private repository.
 
 ## Run it
+
     npm install
     npm run dev
 
-## What changed vs the artifact
-One thing only: storage. `src/storage.js` is an adapter — it uses Claude's
-`window.storage` when running as an artifact, and `localStorage` everywhere else
-(Vite, Lovable, any static host). All data stays in the browser that created it.
+Then open the URL Vite prints (usually http://localhost:5173).
 
-## For Claude Code
-- Specs live in Dropbox: `Sages of Spice HQ/Product & Integrations/` —
-  `integration-standard-technical.md` is the binding build spec (milestones M1–M8,
-  exception matrix §7, acceptance criteria §10). Treat it as the contract.
-- This app is the reference client. Milestone M1 replaces `storage.js` with API
-  calls to `/v1/state` per the spec; nothing else should need to change.
-- The canonical data schema is `sos.stockroom.v1` (see the in-app Data tab export).
-- QA harness pattern: jsdom + React 18 + mocked storage; exception paths get tests
-  before happy paths (spec §10 global DoD).
+## Check it
 
-## Data note
-This is the DEMO twin: every blend, ratio and supplier in `src/App.jsx` is fictional.
-The build with the real recipe data (the business's IP) is kept separately and must
-only ever live in a private repository.
+    npm test        # Vitest + jsdom, storage mocked
+    npm run build   # production bundle in dist/
+
+Both run in CI on every push and pull request.
+
+## How it is put together
+
+- `src/App.jsx` — the whole app, deliberately one file for parity with the artifact.
+- `src/storage.js` — the only place storage is touched. It uses Claude's `window.storage`
+  when running as an artifact and `localStorage` everywhere else. All data stays in the
+  browser that created it.
+- `src/__tests__/` — tests follow the project rule: exception paths first, then happy paths.
+- `CLAUDE.md` — working rules for anyone using Claude Code on this repo.
+
+The app exports and imports its full state as one versioned JSON document
+(`sos.stockroom.v1`, see the in-app Data tab). That schema is the contract a future hosted
+API would serve; the integration spec that governs that work is internal and not in this
+repository.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
