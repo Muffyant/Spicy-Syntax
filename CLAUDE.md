@@ -1,5 +1,5 @@
 # Project context for Claude Code
-- Single-file React app: src/App.jsx (~1.9k lines, deliberately one file for artifact parity — do not split without being asked).
+- Single-file React app: src/App.jsx (~4.3k lines including the flavour engine and library, deliberately one file for artifact parity — do not split without being asked).
 - Storage goes through src/storage.js ONLY. Never call localStorage directly in App.jsx.
 - Costing rules: carrying cost = weighted average of purchases (costPerG); planning cost = stdCostPerG; recipes cost at carrying, shopping lists at standard.
 - Units convention: ingredients named "(units)" are counted items (bottles, corks, bags), 1g = 1 unit; they are excluded from recipe gram-sum validation.
