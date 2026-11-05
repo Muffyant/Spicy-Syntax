@@ -8,8 +8,9 @@
 Inventory, batch and margin control for a small spice-blend business. A single-component
 React app, extracted from a Claude artifact into a standard Vite project.
 
-Every blend, ratio and supplier in this repository is **fictional demo data**. The build
-with the real recipes is kept separately in a private repository.
+Every blend, ratio and supplier in this repository is **fictional demo data**. The live
+Stockroom with the real recipes runs privately and keeps its data in its own storage, so
+none of it is in this repository.
 
 ## What it does
 
